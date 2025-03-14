@@ -45,7 +45,7 @@ export const Transcrib=()=>{
     formData.append('audio', audioFile);
 
     try {
-      const response = await axios.post('http://localhost:7079/transcribe', formData, {
+      const response = await axios.post('http://speechtranscript.onrender.com/transcribe', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
