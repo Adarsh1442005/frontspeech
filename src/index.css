@@ -1,0 +1,80 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.change {
+  background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);
+  background-size: 200% 200%;
+  transition: background-position 0.5s ease;
+}
+.change:hover {
+  background-position: right center;
+}
+/* Button Hover Effect */
+.btn-hover {
+  transition: background-color 0.3s, transform 0.3s;
+}
+.btn-hover:hover {
+  background-color: #d55642;
+  transform: scale(1.05);
+}
+/* Input Focus Effect */
+.input-focus {
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.input-focus:focus {
+  border-color: #ff7e5f;
+  box-shadow: 0 0 5px rgba(255, 126, 95, 0.5);
+}
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.log{
+  
+height:100px;
+width:100px;
+  background-size: contain;
+  transition: transform 0.3s ease;
+  background: url('mylog.png');
+}
+.logo {
+  width: 100px;
+  height: 100px;
+  background: url('transcription.png') no-repeat center center;
+  background-size: contain;
+  transition: transform 0.3s ease;
+}
+.logo:hover {
+  transform: scale(1.2);
+}.bg-gradient {
+  background: linear-gradient(90deg, #ff7e5f, #feb47b, #86a8e7, #91eae4);
+  background-size: 300% 300%;
+  animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.record-btn {
+  cursor: pointer;
+}

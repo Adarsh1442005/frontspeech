@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speech-to-Text Transcription</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Add background color transition */
+    .bg-gradient {
+      background: linear-gradient(90deg, #ff7e5f, #feb47b, #86a8e7, #91eae4);
+      background-size: 300% 300%;
+      animation: gradient 10s ease infinite;
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .record-btn {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 bg-gradient">
+  <div class="container mx-auto p-4">
+    <!-- Logo and Header -->
+    <div class="text-center mb-8">
+      <img src="your-logo-url.png" alt="Logo" class="mx-auto h-16 w-auto">
+      <h1 class="text-3xl font-bold mt-4">Speech-to-Text Transcription</h1>
+    </div>
+
+    <!-- Record Audio Section -->
+    <div class="bg-white shadow-md rounded-lg p-6 mb-8">
+      <h2 class="text-2xl font-semibold mb-4">Record Audio</h2>
+      <img src="your-record-icon-url.png" alt="Record" id="recordBtn" class="record-btn mx-auto h-16 w-auto">
+    </div>
+
+    <!-- Import Audio Files Section -->
+    <div class="bg-white shadow-md rounded-lg p-6 mb-8">
+      <h2 class="text-2xl font-semibold mb-4">Import Audio Files</h2>
+      <input type="file" id="audioFile" accept="audio/*" class="block w-full text-lg text-gray-700 border border-gray-300 rounded-md p-2">
+      <button id="uploadBtn" class="mt-4 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300">Upload</button>
+    </div>
+
+    <!-- Transcribed Text Section -->
+    <div class="bg-white shadow-md rounded-lg p-6">
+      <h2 class="text-2xl font-semibold mb-4">Transcribed Text</h2>
+      <div id="transcribedText" class="border border-gray-300 p-4 rounded-md h-64 overflow-y-auto bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-white text-lg font-medium shadow-lg">
+        <!-- Transcribed text will be displayed here -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let mediaRecorder;
+    let audioChunks = [];
+
+    document.getElementById('recordBtn').addEventListener('click', async () => {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      mediaRecorder = new MediaRecorder(stream);
+
+      mediaRecorder.ondataavailable = (event) => {
+        audioChunks.push(event.data);
+        if (mediaRecorder.state === 'inactive') {
+          const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+          audioChunks = [];
+          // Simulate the transcription process (replace this with actual transcription logic)
+          const transcribedText = 'This is a sample transcribed text from the recorded audio.';
+          document.getElementById('transcribedText').innerText = transcribedText;
+        }
+      };
+
+      mediaRecorder.start();
+      setTimeout(() => mediaRecorder.stop(), 5000); // Record for 5 seconds
+    });
+
+    document.getElementById('uploadBtn').addEventListener('click', () => {
+      const fileInput = document.getElementById('audioFile');
+      const transcribedTextDiv = document.getElementById('transcribedText');
+
+      if (fileInput.files.length > 0) {
+        // Simulate the transcription process (replace this with actual transcription logic)
+        const transcribedText = 'This is a sample transcribed text corresponding to the uploaded audio file.';
+        transcribedTextDiv.innerText = transcribedText;
+      } else {
+        alert('Please select an audio file to upload.');
+      }
+    });
+  </script>
+</body>
+</html>
