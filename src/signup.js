@@ -37,7 +37,7 @@ const  SignUp=()=> {
     const handlesubmit=(e)=>{
         
         e.preventDefault();
-        axios.post('http://speechtranscript.onrender.com/submit',formdata).then((response)=>{
+        axios.post('https://speechtranscript.onrender.com/submit',formdata).then((response)=>{
             console.log("Data submitted",response.data);
             setresponsedata(response.data);
     

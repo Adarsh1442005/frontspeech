@@ -12,7 +12,7 @@ export const Logout=()=>{
      else{
     const formdata={email:mail}
     console.log(formdata);
-    axios.post('http://speechtranscript.onrender.com/logout',formdata).then((response)=>{
+    axios.post('https://speechtranscript.onrender.com/logout',formdata).then((response)=>{
         
             Cookies.remove('token');
 
