@@ -29,7 +29,7 @@ It is web based application for real-time text speech transcription built with r
 
 -For version control purpose we have used **GitHub** where we have integrated the remote repository named as **frontspeech** as frontend part and **Speech-transcript** for backend part.
 
-## Deployment:
+## WEBHOST:
 
 - For deployment first of all we pushed our project on **Github**.
 - After that we have created the account on webhosting platform **Render.com**.
