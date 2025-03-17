@@ -78,3 +78,39 @@ width:100px;
 .record-btn {
   cursor: pointer;
 }
+/* Spinner Animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+/* Blinking Wave Animation */
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.blinking-wave {
+  height: 20px;
+  width: 100px;
+  background: linear-gradient(90deg, #ff007f, #8a2be2, #ff007f);
+  animation: blink 1s infinite;
+  border-radius: 10px;
+}

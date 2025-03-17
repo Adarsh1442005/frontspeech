@@ -1,53 +1,51 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-
 import { Link } from 'react-router-dom';
 
-const  SignUp=()=> {
-    const[formdata,setformdata]=useState({
-        username:'',
-        email:''  ,
-        password:''   
-    });
-    const [showPassword, setShowPassword] = useState(false);
-    const fieldMapping = {
-        username: 'username',
-        email: 'email',
-        password: 'password'
-      };
+const SignUp = () => {
+  const [formdata, setformdata] = useState({
+    username: '',
+    email: '',
+    password: ''
+  });
+  const [showPassword, setShowPassword] = useState(false);
+  const [responseData, setresponsedata] = useState(null);
+  const [loading, setLoading] = useState(false); // Loading state for spinner
 
-    const[responseData,setresponsedata]=useState(null);
+  const fieldMapping = {
+    username: 'username',
+    email: 'email',
+    password: 'password'
+  };
 
-    const handlechange=(e)=>{
-        const{name,value}=e.target;
-        const mappedName = fieldMapping[name];
-        setformdata((prevdata)=>({
-            ... prevdata,
-            [mappedName]:value
-            
-        
-        
+  const handlechange = (e) => {
+    const { name, value } = e.target;
+    const mappedName = fieldMapping[name];
+    setformdata((prevdata) => ({
+      ...prevdata,
+      [mappedName]: value
     }));
-    
-    };
-    const toggleShowPassword = () => {
-        setShowPassword(!showPassword);
-      };
+  };
 
-    const handlesubmit=(e)=>{
-        
-        e.preventDefault();
-        axios.post('https://speechtranscript.onrender.com/submit',formdata).then((response)=>{
-            console.log("Data submitted",response.data);
-            setresponsedata(response.data);
-    
-        }
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
 
-
-        ).catch((error)=>{
-            console.error("error is there",error);
-        });
-    };
+  const handlesubmit = (e) => {
+    e.preventDefault();
+    setLoading(true); // Start spinner
+    axios
+      .post('https://speechtranscript.onrender.com/submit', formdata)
+      .then((response) => {
+        console.log('Data submitted', response.data);
+        setresponsedata(response.data);
+        setLoading(false); // Stop spinner
+      })
+      .catch((error) => {
+        console.error('Error is there', error);
+        setLoading(false); // Stop spinner
+      });
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center change">
@@ -59,26 +57,26 @@ const  SignUp=()=> {
         <form onSubmit={handlesubmit} method="POST">
           <div className="mb-4">
             <label htmlFor="username" className="block text-gray-700 font-medium">Username</label>
-            <input 
-              type="text" 
-              id="username" 
-              name="username" 
+            <input
+              type="text"
+              id="username"
+              name="username"
               value={formdata.username}
               onChange={handlechange}
-              required 
-              className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg input-focus" 
+              required
+              className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg input-focus"
             />
           </div>
           <div className="mb-4">
             <label htmlFor="email" className="block text-gray-700 font-medium">Email Address</label>
-            <input 
-              type="email" 
-              id="email" 
-              name="email" 
+            <input
+              type="email"
+              id="email"
+              name="email"
               value={formdata.email}
               onChange={handlechange}
-              required 
-              className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg input-focus" 
+              required
+              className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg input-focus"
             />
           </div>
           <div className="mb-6">
@@ -101,22 +99,26 @@ const  SignUp=()=> {
                 {showPassword ? 'Hide' : 'Show'}
               </button>
             </div>
-              
-              
           </div>
           <button type="submit" className="w-full py-3 bg-pink-500 text-white font-semibold rounded-lg btn-hover">Sign Up</button>
           <p className="mt-4 text-center text-gray-600">Already have an account? <Link to="/login" className="text-pink-500 hover:underline">Log In</Link></p>
         </form>
-        {responseData && (
-        <div className="response-data">
-          {responseData.token===0? (<p class="text-red-500">username already exists</p>):(<p class="text-green-500">your account has been created successfully</p>)}
-          
-        </div>
-      )}
+        {loading && (
+          <div className="text-center mt-4">
+            <div className="loader border-t-4 border-pink-500 border-solid w-6 h-6 rounded-full animate-spin"></div>
+          </div>
+        )}
+        {responseData && !loading && (
+          <div className="response-data">
+            {responseData.token === 0 ? (
+              <p className="text-red-500">Username already exists</p>
+            ) : (
+              <p className="text-green-500">Your account has been created successfully</p>
+            )}
+          </div>
+        )}
       </div>
-      
     </div>
-    
   );
 };
 
