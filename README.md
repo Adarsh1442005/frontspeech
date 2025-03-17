@@ -1,66 +1,67 @@
-# Getting Started with Create React App
+### PROJECT-1=> SPEECH TO TEXT TRANSCRIPTION APP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ABOUT THE PROJECT :
 
-## Available Scripts
+It is web based application for real-time text speech transcription built with react , Assembly-AI for transcription services, Mongodb for database management system and styled with the tailwind css.
 
-In the project directory, you can run:
+# FEATURES :
 
-### `npm start`
+- Real-time speech to text transcription using **Assembly-Ai** .
+- storage of client data with the **mongodb** .
+- Modern , responsive , and customizable powered by **Tailwind css**.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# TECHNOLOGIES USED :
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **React**: For building the user interface.
+- **AssemblyAI**: Speech-to-text transcription API.
+- **MongoDB**: NoSQL database to store and manage transcriptions.
+- **Tailwind CSS**: For fast and consistent styling.
 
-### `npm test`
+# INSTALLATION AND SETUP :
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- As normally the text-editor using which we write the codes is basically **vscode**.
 
-### `npm run build`
+- As this a **Full Mern-Stack** based application programm so for integrating purpose we have installed the **react** for frontend part **user-interface** and **node.js** for backend service
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- For sending the request from frontend to the backend ,this app use the **axios** a powerfull **javascript** library whose functionality is to process all kinds of web request **POST , GET , PUT , DELETE**.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- For transcription purpose we have used the **Assembly_AI** ,At the time of login it provided us the **Api-key** that we used on the backend side for the transcription purpose.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-For version control purpose we have used **GitHub** where we have integrated the remote repository named as **frontspeech** as frontend part and **Speech-transcript** for backend part.
 
-### `npm run eject`
+## WEBHOST:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- For deployment first of all we pushed our project on **Github**.
+- After that we have created the account on webhosting platform **Render.com**.
+- we have created a new Webservice there and deployed our both **frontend and backend** there.
+- For the initialization of the frontend service we have used the command **npm start** and for backend **node servering.js**.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## HOW TO USE IT:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+-**May be the app take some time for opening the pages first time so please will wait for some time**
+-Firstly when will we visit the url **https://frontspeech-1.onrender.com** we will obtain the home page.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+-May be possible it will take some time for loading once so please wait there.
 
-## Learn More
+-when will we reach out to the home there we found some options for rendering on differnt parts of application such as
+**Login, Logout, Signin, signup , Getstarted**.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+-whenever will you want to open the main page where we can upload the audio-files for the transcription purpose we should have visit with the **GetStarted** .
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- But if without **Login** yourself you will try to reach out there you can'nt be able to do so.
 
-### Code Splitting
+-there is a need to **login** yourself by creating your account first.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**on signin page after entering all details click on signin button and try to stay there for a moment if it will take time**
 
-### Analyzing the Bundle Size
+-If your credentials exist in the database then you will found on the same page on bottom with the green text that
+**you have loogedin successfully** otherwise with red text **given username or password not exists**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+-once you have loggedin yourself then you can go the the transcription page by clicking on the **getstarted** on home page.
 
-### Making a Progressive Web App
+-may be **getstarted** take sometime but it will open definitely.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
+**We re open to enhancing this further—get in touch if you have ideas for new features!**
 ### Deployment
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
